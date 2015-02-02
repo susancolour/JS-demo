@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>js全排列</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+	window.onload = function(){
+		var oTxt = document.getElementById("txt1") ;
+		var oBtn = document.getElementById("btn1") ;
+		oBtn.onclick = function(){
+			var oVal =oTxt.value ;
+			var aVal = oVal.split("");
+			allSort(aVal , 0 , aVal.length) ;
+		}
+		function allSort(arr , first , length){
+			if(first === length){
+				console.log(arr) ;
+			}
+			else{
+				for(var i = first ; i < arr.length ; i++){
+					var temp = arr[first] ;
+					arr[first] = arr[i] ;
+					arr[i] = temp ;
+					allSort(arr , first+1 , length) ;
+					temp = arr[first] ;
+					arr[first] = arr[i] ;
+					arr[i] = temp ;
+				}
+			}
+		}
+		
+	}
+	</script>
+</head>
+<body>
+<input id="txt1" type="text">
+<input id="btn1" type="button" value="全排列">
+</body>
+</html>
